@@ -1,0 +1,56 @@
+#include <iostream>
+#include "stack.h"
+using namespace std;
+int main(){
+ int size;
+    cout<<"Enter stack size: ";
+    cin>>size;
+    myStack<int> s(size);
+    int choice,value;
+    do{
+           cout<<"\n1 Push element\n";
+        cout<<"2 Pop element\n";
+        cout<<"3 Show top element\n";
+        cout<<"4 Check if stack is empty\n";
+        cout<<"5 Check if stack is full\n";
+        cout<<"6 Display stack elements\n";
+        cout<<"7 Show minimum element\n";
+        cout<<"8 Exit\n";
+        cout<<"Choice: ";
+        cin>>choice;
+        switch(choice){
+               case 1:
+            cout<<"Enter value: ";
+            cin>>value;
+            s.push(value);
+            break;
+            case 2:
+            cout<<"Popped: "<<s.pop()<<endl;
+            break;
+            case 3:
+            cout<<"Top: "<<s.top()<<endl;
+            break;
+            case 4:
+            if(s.isEmpty()) cout<<"Stack is Empty\n";
+            else cout<<"Stack is not Empty\n";
+            break;
+            case 5:
+            if(s.isFull()) cout<<"Stack is Full\n";
+            else cout<<"Stack is not Full\n";
+            break;
+            case 6:
+            s.display();
+            break;
+            case 7:
+            cout<<"Minimum: "<<s.getMin()<<endl;
+            break;
+            case 8:
+            cout<<"Exit\n";
+            break;
+            default:
+            cout<<"Invalid Choice\n";
+        }
+
+    }while(choice!=8);
+    return 0;
+}
